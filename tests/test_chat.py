@@ -2,16 +2,21 @@ from time import sleep
 
 import pytest
 
+MESSAGE = 'Test message'
+URGENT_MESSAGE = 'Test urgent message'
+
 def test_send_message(chat_page):
     chat_page.log_in()
-    chat_page.enter_message('Test message')
+    chat_page.enter_message(MESSAGE)
     chat_page.send_message()
+    chat_page.is_message_sent(MESSAGE)
 
 def test_send_urgent_message(chat_page):
     chat_page.log_in()
-    chat_page.enter_message('Test urgent message')
+    chat_page.enter_message(URGENT_MESSAGE)
     chat_page.set_urgent_flag()
     chat_page.send_message()
+    chat_page.is_message_sent(URGENT_MESSAGE)
 #
 # def wait_for_element(browser, locator, timeout=TIMEOUT):
 #     wait = WebDriverWait(browser, timeout)

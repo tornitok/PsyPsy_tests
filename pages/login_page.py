@@ -32,5 +32,6 @@ class LoginPage(BaseObject):
     def is_error_message_correct(self, message):
         self.assertion.assert_equal(
             expected=message,
-            actual=self.get_text(self.ERROR_MESSAGE)
+            actual=self.get_text(self.ERROR_MESSAGE),
+            error_type='url'
         )
