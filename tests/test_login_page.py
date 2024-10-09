@@ -1,7 +1,7 @@
 import pytest
 
 def test_success_log_in(login_page):
-    login_page.enter_user_name()
+    login_page.enter_email()
     login_page.enter_password()
     login_page.click_button()
     login_page.is_url_valid()
@@ -12,14 +12,16 @@ def test_success_log_in(login_page):
     [
         ('tomsmith@mail.com', '123456', 'Неверное имя пользователя или пароль.'),
         ('', '123456', 'Поле E-Mail адрес обязательно для заполнения.'),
-        ('test@ts.ts', '', 'Неверное имя пользователя или пароль.'),
+        ('tomsmith@mail.com', '', 'Неверное имя пользователя или пароль.'),
         ('', '', 'Поле E-Mail адрес обязательно для заполнения.'),
+        ('123@ts.ts', '', 'Поле E-Mail адрес должно быть действительным электронным адресом.')
     ],
     ids=[
         'invalid_credentials',
-        'empty_user_name',
+        'empty_email',
         'empty_password',
-        'empty_fields'
+        'empty_fields',
+        'non_existent_email'
     ]
 )
 def test_unsuccessful_log_in(login_page, user_name, password, error_message):

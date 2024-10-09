@@ -20,5 +20,6 @@ def test_send_urgent_message(chat_page):
 
 def test_chat_send_file(chat_page):
     chat_page.log_in()
-    image_path = './files/image.png'
+    image_path = '/Users/klim/Desktop/PsyPsy_tests/files/image.png'
     chat_page.send_image(image_path)
+    chat_page.get_file('image.png')
