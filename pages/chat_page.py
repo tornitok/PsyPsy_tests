@@ -25,8 +25,35 @@ class ChatPage(LoginPage):
     def send_message(self):
         self.click(self.SEND_BUTTON)
 
-    def send_text_and_image(self, image):
-        self.send_keys(self.CHAT_INPUT, image)
+    def send_image(self, image_path: str) -> None:
+        """
+        Uploads an image to the chat by clicking the upload button, selecting an image, and clicking submit.
+
+        :param image_path: The path to the image file that needs to be uploaded.
+        """
+        # Click the upload button
+        self.click(self.UPLOAD_BUTTON)
+
+        # Send the image path to the file input field
+        self.send_keys(self.UPLOAD_BUTTON, image_path)
+
+        # Click the submit button to upload the image
+        self.click(self.SUBMIT_BUTTON)
+
+    # Example function to send text and image
+    def send_text_and_image(self, text: str, image_path: str) -> None:
+        """
+        Sends a text message followed by an image to the chat.
+
+        :param text: The text message to send.
+        :param image_path: The path to the image file to send.
+        """
+        # Send text message
+        self.enter_message(text)
+        self.send_message()
+
+        # Upload image
+        self.send_image(image_path)
 
     def log_in(self):
         self.enter_user_name()

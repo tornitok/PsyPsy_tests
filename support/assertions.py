@@ -14,7 +14,7 @@ class Assertions:
                     actual_decoded
                 )
             )
-        else:
+        elif error_type == 'message':
             assert (expected_decoded == actual_decoded,
                     AssertionErrors.MESSAGE_NOT_SENT.format(
                         expected_decoded,
