@@ -6,13 +6,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 from pages.login_page import LoginPage
 from pages.chat_page import ChatPage
 from config import URL
-from auth_cookies import execute_cookies
 
 
 @pytest.fixture
 def get_chrome_options():
     options = Options()
-    options.add_argument('--headless')
     return options
 
 @pytest.fixture

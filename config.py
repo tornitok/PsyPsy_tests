@@ -12,4 +12,4 @@ class Secrets:
 class URL:
     BASE_URL = 'https://psy@admin.com:psy@admin.com@24psypsy.ru'
     INDEX_PAGE = f'{BASE_URL}/auth'
-    PROFILE_PAGE = f'{BASE_URL}/profile'
+    PROFILE_PAGE = f'{BASE_URL}/profile/'
